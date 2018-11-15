@@ -25,7 +25,7 @@ import io.neson.react.notification.NotificationEventReceiver;
 import io.neson.react.notification.NotificationPublisher;
 
 import android.util.Base64;
-import android.support.v7.app.NotificationCompat;
+import android.support.v4.app.NotificationCompat;
 import android.text.Html;
 import android.util.Base64;
 import android.util.Log;
@@ -119,7 +119,7 @@ public class Notification {
      * Build the notification.
      */
     public android.app.Notification build() {
-        android.support.v7.app.NotificationCompat.Builder notificationBuilder = new android.support.v7.app.NotificationCompat.Builder(context);
+        android.support.v4.app.NotificationCompat.Builder notificationBuilder = new android.support.v4.app.NotificationCompat.Builder(context);
 
         notificationBuilder
             .setContentTitle(attributes.subject)
@@ -146,7 +146,7 @@ public class Notification {
 
         if(attributes.inboxStyle){
 
-            android.support.v7.app.NotificationCompat.InboxStyle inboxStyle = new android.support.v7.app.NotificationCompat.InboxStyle();
+            android.support.v4.app.NotificationCompat.InboxStyle inboxStyle = new android.support.v4.app.NotificationCompat.InboxStyle();
 
             if(attributes.inboxStyleBigContentTitle != null){
                 inboxStyle.setBigContentTitle(attributes.inboxStyleBigContentTitle);
@@ -196,7 +196,7 @@ public class Notification {
         // if bigText is not null, it have priority over bigStyleImageBase64
         if (attributes.bigText != null) {
             notificationBuilder
-              .setStyle(new android.support.v7.app.NotificationCompat.BigTextStyle()
+              .setStyle(new android.support.v4.app.NotificationCompat.BigTextStyle()
               .bigText(attributes.bigText));
         }
         else if (attributes.bigStyleUrlImgage != null && attributes.bigStyleUrlImgage != "") {
